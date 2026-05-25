@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PhysioCare — Dr. Narendra Yadav</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@400;500;600;700&family=Epilogue:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --blue:#1354F9;
+  --blue-dark:#0C3FCC;
+  --blue-light:#EEF2FF;
+  --teal:#06C8A8;
+  --teal-light:#E6FAF7;
+  --navy:#050D24;
+  --navy2:#0B163A;
+  --navy3:#152250;
+  --white:#FFFFFF;
+  --off:#F7F9FC;
+  --border:rgba(0,0,0,0.07);
+  --border-dark:rgba(255,255,255,0.1);
+  --text:#1A2340;
+  --muted:#6B7A9A;
+  --light:#A8B3CC;
+  --radius:16px;
+  --shadow:0 8px 32px rgba(19,84,249,0.10);
+  --trans:0.35s cubic-bezier(.4,0,.2,1);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Epilogue',sans-serif;background:var(--white);color:var(--text);overflow-x:hidden}
+
+/* ─── TOPBAR ─── */
+.topbar{background:var(--navy);padding:9px 60px;display:flex;justify-content:space-between;align-items:center;font-size:12.5px;color:var(--light);letter-spacing:.02em}
+.topbar-left{display:flex;align-items:center;gap:8px}
+.topbar-dot{width:7px;height:7px;background:var(--teal);border-radius:50%;animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.4}}
+.topbar-socials{display:flex;gap:8px}
+.topbar-socials a{width:26px;height:26px;border:1px solid var(--border-dark);border-radius:6px;display:flex;align-items:center;justify-content:center;color:var(--light);text-decoration:none;font-size:11px;transition:var(--trans)}
+.topbar-socials a:hover{background:var(--blue);border-color:var(--blue);color:#fff}
+
+/* ─── NAVBAR ─── */
+.navbar{position:sticky;top:0;z-index:1000;background:rgba(5,13,36,.9);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid var(--border-dark);padding:0 60px;height:70px;display:flex;align-items:center;justify-content:space-between;transition:var(--trans)}
+.navbar.light{background:rgba(255,255,255,.95);border-bottom:1px solid var(--border)}
+.logo{font-family:'Clash Display',sans-serif;font-weight:700;font-size:20px;letter-spacing:.08em;color:#fff;text-decoration:none;display:flex;align-items:center;gap:10px}
+.navbar.light .logo{color:var(--navy)}
+.logo-mark{width:34px;height:34px;background:var(--blue);border-radius:9px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:16px;font-weight:700}
+.logo em{color:var(--teal);font-style:normal}
+.nav-links{display:flex;list-style:none;gap:4px}
+.nav-links a{font-size:14px;color:rgba(255,255,255,.7);text-decoration:none;padding:8px 14px;border-radius:8px;transition:var(--trans);font-weight:400}
+.navbar.light .nav-links a{color:var(--muted)}
+.nav-links a:hover,.nav-links a.active{color:#fff;background:rgba(255,255,255,.1)}
+.navbar.light .nav-links a:hover,.navbar.light .nav-links a.active{color:var(--blue);background:var(--blue-light)}
+.nav-actions{display:flex;gap:10px;align-items:center}
+.btn-nav{font-family:'Epilogue',sans-serif;font-size:13.5px;font-weight:500;padding:9px 20px;border-radius:10px;text-decoration:none;cursor:pointer;transition:var(--trans);display:inline-flex;align-items:center;gap:7px;border:none;letter-spacing:.01em}
+.btn-nav-ghost{background:transparent;color:#fff;border:1px solid var(--border-dark)}
+.btn-nav-ghost:hover{background:rgba(255,255,255,.08)}
+.navbar.light .btn-nav-ghost{color:var(--text);border:1px solid var(--border)}
+.btn-nav-solid{background:var(--blue);color:#fff}
+.btn-nav-solid:hover{background:var(--blue-dark);box-shadow:0 6px 20px rgba(19,84,249,.35);transform:translateY(-1px)}
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:1px solid var(--border-dark);border-radius:8px;padding:10px;cursor:pointer;width:40px;height:40px;align-items:center;justify-content:center}
+.hamburger span{display:block;width:18px;height:1.5px;background:#fff;border-radius:2px;transition:var(--trans)}
+.nav-mobile{display:none;flex-direction:column;position:absolute;top:70px;left:0;right:0;background:var(--navy2);border-bottom:1px solid var(--border-dark);padding:12px 24px 20px;gap:4px;z-index:999}
+.nav-mobile a{font-size:15px;color:rgba(255,255,255,.8);text-decoration:none;padding:10px 12px;border-radius:8px;transition:var(--trans);font-weight:400}
+.nav-mobile a:hover{background:rgba(255,255,255,.08);color:#fff}
+
+/* ─── HERO SLIDER ─── */
+.hero{position:relative;height:92vh;min-height:580px;overflow:hidden;background:var(--navy)}
+.hero-track{display:flex;height:100%;width:300%;transition:transform .8s cubic-bezier(.77,0,.175,1)}
+.hero-slide{width:33.333%;height:100%;position:relative;flex-shrink:0}
+.hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;transform:scale(1.06);transition:transform 8s ease}
+.hero-slide.active .hero-bg{transform:scale(1)}
+.hero-bg-1{background:linear-gradient(135deg,#051838 0%,#0d2d6b 40%,#093358 100%)}
+.hero-bg-2{background:linear-gradient(135deg,#051030 0%,#06C8A8 80%,#1354F9 100%)}
+.hero-bg-3{background:linear-gradient(135deg,#0B163A 0%,#152250 60%,#1354F9 100%)}
+.hero-mesh{position:absolute;inset:0;background-image:radial-gradient(circle at 20% 50%,rgba(19,84,249,.3) 0%,transparent 55%),radial-gradient(circle at 80% 20%,rgba(6,200,168,.2) 0%,transparent 45%)}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:72px 72px}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(5,13,36,.88) 45%,rgba(5,13,36,.2) 100%)}
+.hero-content{position:absolute;top:50%;left:8%;transform:translateY(-50%);max-width:620px;opacity:0;transform:translateY(-45%) translateX(-30px);transition:opacity .9s ease .2s,transform .9s ease .2s}
+.hero-slide.active .hero-content{opacity:1;transform:translateY(-50%) translateX(0)}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(6,200,168,.12);border:1px solid rgba(6,200,168,.3);color:var(--teal);font-size:12px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:7px 16px;border-radius:100px;margin-bottom:26px}
+.hero-content h1{font-family:'Clash Display',sans-serif;font-size:clamp(38px,5.5vw,68px);font-weight:700;line-height:1.05;letter-spacing:-.025em;color:#fff;margin-bottom:20px}
+.hero-content h1 em{font-style:normal;color:var(--teal)}
+.hero-content p{font-size:16.5px;font-weight:300;color:rgba(255,255,255,.65);line-height:1.75;margin-bottom:38px;max-width:500px}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap}
+.btn-hero{font-family:'Epilogue',sans-serif;font-size:15px;font-weight:500;padding:14px 30px;border-radius:12px;text-decoration:none;display:inline-flex;align-items:center;gap:9px;cursor:pointer;transition:var(--trans);border:none;letter-spacing:.01em}
+.btn-hero-p{background:var(--blue);color:#fff}
+.btn-hero-p:hover{background:var(--blue-dark);transform:translateY(-2px);box-shadow:0 12px 30px rgba(19,84,249,.45)}
+.btn-hero-s{background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.2)}
+.btn-hero-s:hover{background:rgba(255,255,255,.15);border-color:rgba(255,255,255,.4)}
+/* slider controls */
+.hero-ctrl{position:absolute;bottom:44px;left:8%;display:flex;align-items:center;gap:18px;z-index:10}
+.hero-arrows{display:flex;gap:8px}
+.hero-arrow{width:46px;height:46px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.06);backdrop-filter:blur(10px);border-radius:12px;color:#fff;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:var(--trans)}
+.hero-arrow:hover{background:var(--blue);border-color:var(--blue);transform:scale(1.05)}
+.hero-dots{display:flex;gap:8px;align-items:center}
+.hdot{width:7px;height:7px;border-radius:4px;background:rgba(255,255,255,.3);cursor:pointer;transition:var(--trans)}
+.hdot.active{width:28px;background:var(--teal)}
+/* floating card */
+.hero-float{position:absolute;right:6%;top:50%;transform:translateY(-50%);background:rgba(11,22,58,.8);backdrop-filter:blur(24px);border:1px solid var(--border-dark);border-radius:20px;padding:28px 24px;width:272px;animation:floaty 5s ease-in-out infinite}
+@keyframes floaty{0%,100%{transform:translateY(-50%)}50%{transform:translateY(calc(-50% - 12px))}}
+.fc-head{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--light);margin-bottom:14px;font-weight:500}
+.fc-row{display:flex;align-items:center;gap:12px;padding:11px 0;border-bottom:1px solid var(--border-dark)}
+.fc-row:last-child{border-bottom:none}
+.fc-ic{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0}
+.ic-b{background:rgba(19,84,249,.15)}
+.ic-t{background:rgba(6,200,168,.15)}
+.ic-a{background:rgba(250,199,117,.15)}
+.fc-num{font-family:'Clash Display',sans-serif;font-size:18px;font-weight:600;color:#fff}
+.fc-lbl{font-size:12px;color:var(--light)}
+
+/* ─── SECTION COMMON ─── */
+.section{padding:90px 60px}
+.section-light{background:var(--off)}
+.section-dark{background:var(--navy);color:#fff}
+.section-dark-2{background:var(--navy2);color:#fff}
+.sec-tag{display:inline-flex;align-items:center;gap:8px;font-size:11.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:7px 16px;border-radius:100px;margin-bottom:16px}
+.sec-tag-blue{background:var(--blue-light);color:var(--blue)}
+.sec-tag-dark{background:rgba(19,84,249,.15);color:rgba(19,84,249,.9)}
+.sec-tag-teal{background:var(--teal-light);color:#059e84}
+.sec-title{font-family:'Clash Display',sans-serif;font-size:clamp(30px,3.5vw,46px);font-weight:700;line-height:1.1;letter-spacing:-.025em;margin-bottom:14px}
+.sec-sub{font-size:16px;color:var(--muted);font-weight:300;line-height:1.7;max-width:560px}
+.sec-header-center{text-align:center;margin-bottom:60px}
+.sec-header-center .sec-sub{margin:0 auto}
+
+/* ─── WHY CHOOSE US ─── */
+
+/* ─── .why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;max-width:1200px;margin:0 auto} ─── */
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1200px;margin:0 auto}
+.why-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:34px 24px;position:relative;overflow:hidden;transition:var(--trans);cursor:default}
+.why-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--blue),var(--teal));transform:scaleX(0);transform-origin:left;transition:transform .4s ease}
+.why-card:hover::after{transform:scaleX(1)}
+.why-card:hover{transform:translateY(-8px);box-shadow:0 24px 60px rgba(19,84,249,.1)}
+.why-ic{width:58px;height:58px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:26px;margin-bottom:22px}
+.wic-1{background:var(--blue-light)}
+.wic-2{background:var(--teal-light)}
+.wic-3{background:#FFF5E6}
+.wic-4{background:#F0FFF4}
+.why-num{font-family:'Clash Display',sans-serif;font-size:38px;font-weight:700;color:var(--text);letter-spacing:-.02em;line-height:1}
+.why-num span{color:var(--blue)}
+.why-label{font-size:15px;font-weight:500;color:var(--text);margin:6px 0 12px}
+.why-desc{font-size:13.5px;color:var(--muted);line-height:1.7;font-weight:300}
+
+/* ─── ABOUT SECTION ─── */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;max-width:1200px;margin:0 auto}
+.about-img-wrap{position:relative}
+.about-img{width:100%;aspect-ratio:4/5;border-radius:24px;object-fit:cover;background:linear-gradient(135deg,#dbe8ff 0%,#b6d0ff 100%);display:flex;align-items:center;justify-content:center;font-size:80px;overflow:hidden}
+.about-img-placeholder{height:830px;width:100%;aspect-ratio:4/5;border-radius:24px;background:linear-gradient(135deg,#1354F9 0%,#0d2d6b 100%);display:flex;align-items:center;justify-content:center;font-size:100px;position:relative;overflow:hidden}
+.about-img-placeholder::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
+.about-img-text{position:relative;z-index:1;text-align:center;color:rgba(255,255,255,.5);font-size:14px;font-weight:300;margin-top:12px}
+.about-img-icon{font-size:80px;display:block;margin-bottom:8px}
+.about-badge{position:absolute;bottom:-20px;left:-20px;background:#fff;border:1px solid var(--border);border-radius:16px;padding:18px 22px;box-shadow:0 16px 40px rgba(0,0,0,.1);display:flex;align-items:center;gap:14px}
+.ab-icon{width:48px;height:48px;background:var(--blue-light);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px}
+.ab-num{font-family:'Clash Display',sans-serif;font-size:22px;font-weight:700;color:var(--text);line-height:1}
+.ab-lbl{font-size:12px;color:var(--muted)}
+.about-pills{display:flex;gap:10px;flex-wrap:wrap;margin:28px 0}
+.pill{display:inline-flex;align-items:center;gap:8px;background:var(--off);border:1px solid var(--border);border-radius:100px;padding:8px 16px;font-size:13px;font-weight:500;color:var(--text)}
+.pill span{color:var(--blue);font-size:16px}
+.about-features{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:32px}
+.feat-item{display:flex;align-items:flex-start;gap:12px;background:var(--off);border-radius:12px;padding:16px}
+.feat-num{width:30px;height:30px;border-radius:8px;background:var(--blue-light);color:var(--blue);font-size:12px;font-weight:600;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.feat-title{font-size:13.5px;font-weight:500;color:var(--text);margin-bottom:3px}
+.feat-sub{font-size:12px;color:var(--muted);font-weight:300}
+
+/* ─── SERVICES ─── */
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1100px;margin:0 auto}
+.svc-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:30px 24px;transition:var(--trans);cursor:default;position:relative;overflow:hidden}
+.svc-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--blue),var(--teal));opacity:0;transition:opacity .3s}
+.svc-card:hover::before{opacity:1}
+.svc-card:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(19,84,249,.1)}
+.svc-ic{width:52px;height:52px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:18px;background:var(--blue-light)}
+.svc-title{font-family:'Clash Display',sans-serif;font-size:16px;font-weight:600;color:var(--text);margin-bottom:10px}
+.svc-desc{font-size:13.5px;color:var(--muted);line-height:1.7;font-weight:300;margin-bottom:18px}
+.svc-link{font-size:13px;font-weight:500;color:var(--blue);text-decoration:none;display:inline-flex;align-items:center;gap:6px;transition:var(--trans)}
+.svc-link:hover{gap:10px}
+
+/* ─── TEAM SLIDER ─── */
+.team-slider-wrap{position:relative;overflow:hidden}
+.team-track{display:flex;gap:24px;transition:transform .6s cubic-bezier(.4,0,.2,1);padding-bottom:8px}
+.doc-card{min-width:240px;flex-shrink:0;background:var(--white);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:var(--trans)}
+.doc-card:hover{transform:translateY(-6px);box-shadow:0 20px 48px rgba(19,84,249,.1)}
+.doc-img{width:100%;height:200px;background:linear-gradient(135deg,#dde9ff,#b6ceff);display:flex;align-items:center;justify-content:center;font-size:60px;position:relative;overflow:hidden}
+.doc-img::after{content:'';position:absolute;bottom:0;left:0;right:0;height:50px;background:linear-gradient(to top,rgba(255,255,255,.8),transparent)}
+.doc-body{padding:20px}
+.doc-name{font-family:'Clash Display',sans-serif;font-size:16px;font-weight:600;color:var(--text);margin-bottom:4px}
+.doc-role{font-size:13px;color:var(--blue);font-weight:500;margin-bottom:12px}
+.doc-phone{font-size:13px;color:var(--muted);display:flex;align-items:center;gap:6px}
+.team-arrows{display:flex;gap:10px;justify-content:center;margin-top:36px}
+.team-arrow{width:46px;height:46px;border:1px solid var(--border);background:var(--white);border-radius:12px;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:var(--trans);color:var(--text)}
+.team-arrow:hover{background:var(--blue);border-color:var(--blue);color:#fff}
+
+/* ─── VIDEO / CTA SECTION ─── */
+.cta-section{background:linear-gradient(135deg,var(--navy2) 0%,var(--navy3) 100%);padding:100px 60px;position:relative;overflow:hidden}
+.cta-section::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle at 10% 50%,rgba(19,84,249,.25) 0%,transparent 55%),radial-gradient(circle at 90% 30%,rgba(6,200,168,.15) 0%,transparent 50%)}
+.cta-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;max-width:1100px;margin:0 auto;position:relative;z-index:1}
+.cta-text{color:#fff}
+.cta-text .sec-title{color:#fff}
+.cta-text .sec-sub{color:rgba(255,255,255,.6)}
+.cta-points{list-style:none;margin:28px 0;display:flex;flex-direction:column;gap:14px}
+.cta-points li{display:flex;align-items:center;gap:12px;font-size:15px;color:rgba(255,255,255,.8);font-weight:300}
+.cp-dot{width:20px;height:20px;border-radius:6px;background:rgba(6,200,168,.2);border:1px solid rgba(6,200,168,.3);display:flex;align-items:center;justify-content:center;color:var(--teal);font-size:11px;flex-shrink:0}
+.vid-mockup{border-radius:20px;overflow:hidden;background:linear-gradient(135deg,#1354F9 0%,#06C8A8 100%);aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;position:relative;cursor:pointer;transition:var(--trans)}
+.vid-mockup:hover{transform:scale(1.02)}
+.play-btn{width:72px;height:72px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:0 0 0 16px rgba(255,255,255,.15);transition:var(--trans)}
+.vid-mockup:hover .play-btn{transform:scale(1.1)}
+.vid-label{position:absolute;bottom:20px;left:20px;color:#fff;font-size:13px;font-weight:500;opacity:.8}
+
+/* ─── GALLERY ─── */
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:auto auto;gap:16px;max-width:1100px;margin:0 auto}
+.g-item{border-radius:16px;overflow:hidden;background:linear-gradient(135deg,#dde9ff,#b6ceff);display:flex;align-items:center;justify-content:center;font-size:48px;transition:var(--trans);cursor:default}
+.g-item:hover{transform:scale(1.02)}
+.g-item:nth-child(1){grid-column:1/2;grid-row:1/3;aspect-ratio:3/4}
+.g-item:nth-child(2){grid-column:2/3;grid-row:1/2;aspect-ratio:3/2}
+.g-item:nth-child(3){grid-column:3/4;grid-row:1/2;aspect-ratio:3/2}
+.g-item:nth-child(4){grid-column:2/4;grid-row:2/3;aspect-ratio:3/1.5}
+
+/* ─── TESTIMONIALS ─── */
+.test-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1100px;margin:0 auto}
+.test-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:28px;transition:var(--trans)}
+.test-card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.test-stars{color:#f59e0b;font-size:14px;letter-spacing:2px;margin-bottom:14px}
+.test-quote{font-size:14.5px;color:var(--muted);line-height:1.75;font-weight:300;font-style:italic;margin-bottom:20px}
+.test-author{display:flex;align-items:center;gap:12px}
+.test-av{width:40px;height:40px;border-radius:50%;background:var(--blue-light);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.test-name{font-size:14px;font-weight:500;color:var(--text)}
+.test-sub{font-size:12px;color:var(--muted)}
+
+/* ─── CONTACT STRIP ─── */
+.contact-strip{background:var(--blue);padding:60px;display:flex;align-items:center;justify-content:space-between;gap:40px}
+.cs-text h2{font-family:'Clash Display',sans-serif;font-size:32px;font-weight:700;color:#fff;margin-bottom:8px}
+.cs-text p{font-size:15px;color:rgba(255,255,255,.7);font-weight:300}
+.cs-actions{display:flex;gap:14px;flex-shrink:0}
+.btn-white{font-family:'Epilogue',sans-serif;font-size:14px;font-weight:500;padding:13px 28px;border-radius:11px;text-decoration:none;background:#fff;color:var(--blue);display:inline-flex;align-items:center;gap:8px;transition:var(--trans);border:none;cursor:pointer}
+.btn-white:hover{background:var(--blue-light);transform:translateY(-2px)}
+.btn-outline-w{font-family:'Epilogue',sans-serif;font-size:14px;font-weight:500;padding:13px 28px;border-radius:11px;text-decoration:none;background:transparent;color:#fff;border:1px solid rgba(255,255,255,.3);display:inline-flex;align-items:center;gap:8px;transition:var(--trans);cursor:pointer}
+.btn-outline-w:hover{background:rgba(255,255,255,.1)}
+
+/* ─── FOOTER ─── */
+footer{background:var(--navy);color:rgba(255,255,255,.6);padding:60px 60px 30px;border-top:1px solid var(--border-dark)}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.5fr;gap:48px;margin-bottom:48px}
+.foot-brand .logo{margin-bottom:16px;display:inline-flex}
+.foot-brand p{font-size:13.5px;line-height:1.75;font-weight:300;max-width:260px}
+.foot-col h4{font-family:'Clash Display',sans-serif;font-size:14px;font-weight:600;color:#fff;margin-bottom:16px;letter-spacing:.03em}
+.foot-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.foot-col ul li a{font-size:13.5px;color:rgba(255,255,255,.55);text-decoration:none;transition:var(--trans);font-weight:300}
+.foot-col ul li a:hover{color:#fff}
+.foot-contact li{display:flex;align-items:flex-start;gap:10px;font-size:13.5px;font-weight:300}
+.foot-contact li span:first-child{color:var(--teal);flex-shrink:0;margin-top:2px}
+.foot-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:28px;border-top:1px solid var(--border-dark);font-size:12.5px}
+
+/* ─── SCROLL REVEAL ─── */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-d1{transition-delay:.1s}
+.reveal-d2{transition-delay:.2s}
+.reveal-d3{transition-delay:.3s}
+.reveal-d4{transition-delay:.4s}
+
+/* ─── RESPONSIVE ─── */
+@media(max-width:1100px){
+  .about-grid{gap:48px}
+  .why-grid{grid-template-columns:repeat(2,1fr)}
+  .services-grid{grid-template-columns:repeat(2,1fr)}
+  .cta-grid{grid-template-columns:1fr;gap:40px}
+  .test-grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:768px){
+  .topbar{display:none}
+  .navbar{padding:0 20px}
+  .hero{height:80vh}
+  .hero-content{left:5%;right:5%}
+  .hero-ctrl{left:5%;bottom:28px}
+  .hero-float{display:none}
+  .section{padding:70px 20px}
+  .why-grid{grid-template-columns:1fr}
+  .about-grid{grid-template-columns:1fr;gap:40px}
+  .services-grid{grid-template-columns:1fr}
+  .gallery-grid{grid-template-columns:1fr}
+  .g-item{aspect-ratio:16/9!important;grid-column:auto!important;grid-row:auto!important}
+  .contact-strip{flex-direction:column;padding:40px 20px}
+  .cs-actions{flex-direction:column;width:100%}
+  .footer-grid{grid-template-columns:1fr;gap:32px}
+  .foot-bottom{flex-direction:column;gap:10px;text-align:center}
+  .team-arrows{justify-content:flex-start}
+  .nav-links{display:none}
+  .nav-actions .btn-nav-ghost{display:none}
+  .hamburger{display:flex}
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="topbar-left">
+    <div class="topbar-dot"></div>
+    Accepting new patients &nbsp;·&nbsp; Call: +91-74286-00000 &nbsp;·&nbsp; Mon–Sat 9am–7pm
+  </div>
+  <div class="topbar-socials">
+    <a href="#" title="Twitter">𝕏</a>
+    <a href="#" title="Facebook">f</a>
+    <a href="#" title="Instagram">◎</a>
+    <a href="#" title="YouTube">▶</a>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <a href="#" class="logo">
+    <div class="logo-mark">✚</div>
+    PHYSIO<em>CARE</em>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#" class="active">Home</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#team">Our Team</a></li>
+    <li><a href="#about">About Us</a></li>
+    <li><a href="#contact">Contact Us</a></li>
+  </ul>
+  <div class="nav-actions">
+    <a href="tel:+917428600000" class="btn-nav btn-nav-ghost">📞 Call Now</a>
+    <a href="#contact" class="btn-nav btn-nav-solid">Make Appointment →</a>
+    <button class="hamburger" id="ham" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="nav-mobile" id="navMobile">
+    <a href="#">Home</a>
+    <a href="#services">Services</a>
+    <a href="#team">Our Team</a>
+    <a href="#about">About Us</a>
+    <a href="#contact">Contact Us</a>
+  </div>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero" id="home">
+  <div class="hero-track" id="heroTrack">
+
+    <div class="hero-slide active">
+      <div class="hero-bg hero-bg-1"></div>
+      <div class="hero-mesh"></div>
+      <div class="hero-grid"></div>
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+       <!-- <div class="hero-badge">✦ Trusted Since 2006</div>-->
+        <h1>Professional <em>Physiotherapy</em> That Gets Results</h1>
+        <p>We help you recover faster, move freely, and live without pain — with evidence-based treatments tailored to you.</p>
+        <div class="hero-btns">
+          <a href="#contact" class="btn-hero btn-hero-p">Book Appointment →</a>
+          <a href="#services" class="btn-hero btn-hero-s">Explore Services</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-slide">
+      <div class="hero-bg hero-bg-2"></div>
+      <div class="hero-mesh"></div>
+      <div class="hero-grid"></div>
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <div class="hero-badge">✦ Advanced Technology</div>
+        <h1>Modern Equipment, <em>Expert</em> Hands</h1>
+        <p>State-of-the-art facilities combined with our specialists' expertise deliver outcomes that truly exceed expectations.</p>
+        <div class="hero-btns">
+          <a href="#services" class="btn-hero btn-hero-p">Our Services →</a>
+          <a href="#team" class="btn-hero btn-hero-s">Meet the Team</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-slide">
+      <div class="hero-bg hero-bg-3"></div>
+      <div class="hero-mesh"></div>
+      <div class="hero-grid"></div>
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <div class="hero-badge">✦ 1,000+ Happy Patients</div>
+        <h1>Care You Can <em>Trust,</em> Results You'll Feel</h1>
+        <p>Join thousands of patients who've regained their strength, mobility, and confidence through our dedicated care.</p>
+        <div class="hero-btns">
+          <a href="#contact" class="btn-hero btn-hero-p">Contact Us →</a>
+          <a href="#about" class="btn-hero btn-hero-s">Our Story</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="hero-ctrl">
+    <div class="hero-arrows">
+      <button class="hero-arrow" id="hprev" aria-label="Prev">‹</button>
+      <button class="hero-arrow" id="hnext" aria-label="Next">›</button>
+    </div>
+    <div class="hero-dots" id="heroDots">
+      <div class="hdot active" onclick="heroGo(0)"></div>
+      <div class="hdot" onclick="heroGo(1)"></div>
+      <div class="hdot" onclick="heroGo(2)"></div>
+    </div>
+  </div>
+
+  <div class="hero-float">
+    <div class="fc-head">Quick Stats</div>
+    <div class="fc-row"><div class="fc-ic ic-b">🩺</div><div><div class="fc-num">10K+</div><div class="fc-lbl">Sessions Delivered</div></div></div>
+    <!--<div class="fc-row"><div class="fc-ic ic-t">👨‍⚕️</div><div><div class="fc-num">35+</div><div class="fc-lbl">Specialists</div></div></div>-->
+    <div class="fc-row"><div class="fc-ic ic-a">🏥</div><div><div class="fc-num">7 Yrs</div><div class="fc-lbl">Of Experience</div></div></div>
+  </div>
+</section>
+
+<!-- ═══ WHY CHOOSE US ═══ -->
+<section class="section section-light">
+  <div class="sec-header-center reveal">
+    <div class="sec-tag sec-tag-blue">✦ Why PhysioCare</div>
+    <h2 class="sec-title">Numbers That Speak <span style="color:var(--blue)">For Themselves</span></h2>
+    <p class="sec-sub">18+ years of building healthier lives across 7 world-class centers in Delhi NCR</p>
+  </div>
+  <div class="why-grid">
+    <div class="why-card reveal reveal-d1">
+      <div class="why-ic wic-1">🩺</div>
+      <div class="why-num">10<span>K+</span></div>
+      <div class="why-label">Sessions Delivered</div>
+      <p class="why-desc">Over 10,000 physiotherapy sessions completed, each one helping a patient recover faster and regain physical confidence.</p>
+    </div>
+    <div class="why-card reveal reveal-d2">
+      <div class="why-ic wic-2">👨‍⚕️</div>
+      <div class="why-num">35<span>+</span></div>
+      <div class="why-label">Professionals</div>
+      <p class="why-desc">A team of 35+ certified physiotherapists and specialists delivering evidence-based, compassionate care every single day.</p>
+    </div>
+    <!--
+    <div class="why-card reveal reveal-d3">
+      <div class="why-ic wic-3">🤝</div>
+      <div class="why-num">18<span>+</span></div>
+      <div class="why-label">Years Experience</div>
+      <p class="why-desc">Nearly two decades of trusted physiotherapy excellence — proven results in pain relief, rehabilitation, and wellness.</p>
+    </div>-->
+    <div class="why-card reveal reveal-d4">
+      <div class="why-ic wic-4">🏥</div>
+      <div class="why-num">1</div>
+      <div class="why-label">Clinic Centers</div>
+      <p class="why-desc">Seven modern, technology-equipped centers making expert care easily accessible wherever you are in Delhi NCR.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ABOUT DOCTOR ═══ -->
+<section class="section" id="about">
+  <div class="about-grid">
+    <div class="about-img-wrap reveal">
+      <div class="about-img-placeholder">
+        <div>
+          
+          <span class="about-img-icon"><img src="Dr.photo.jpg"></span>
+          <div class="about-img-text">Dr. Narendra Yadav<br><small>Senior Physiotherapist</small></div>
+        </div>
+      </div>
+      <div class="about-badge">
+        <div class="ab-icon">🏆</div>
+        <div>
+          <div class="ab-num">7+</div>
+          <div class="ab-lbl">Years of Excellence</div>
+        </div>
+      </div>
+    </div>
+    <div class="reveal reveal-d1">
+      <div class="sec-tag sec-tag-teal">✦ About Dr. Deshraj Paul</div>
+      <h2 class="sec-title">We Focus On <span style="color:var(--blue)">Patient-Centered</span> Care & Recovery</h2>
+      <p style="font-size:15px;color:var(--muted);line-height:1.8;font-weight:300;margin-top:16px">Dr. Deshraj Paul is a dedicated physiotherapist providing professional physiotherapy services across Delhi NCR. He specializes in helping patients recover from pain, injuries, and mobility-related conditions through personalized treatment plans and modern physiotherapy techniques.
+
+He completed his Bachelor of Physiotherapy (B.P.T) from Bundelkhand University and is committed to delivering quality care focused on improving strength, movement, flexibility, and overall well-being.</p>
+      <div class="about-pills">
+        <span class="pill"><span>🎓</span> Bachelor of physiotherapy/B.P.T</span>
+        <span class="pill"><span>📍</span> Delhi NCR</span>
+        <!--<span class="pill"><span>⭐</span> 4.9 Rating</span>-->
+      </div>
+      <div class="about-features">
+        <div class="feat-item">
+          <div class="feat-num">1</div>
+          <div><div class="feat-title">Compassionate Healthcare</div><div class="feat-sub">Patient-first approach in every session</div></div>
+        </div>
+        <div class="feat-item">
+          <div class="feat-num">2</div>
+          <div><div class="feat-title">Advanced Medical Technology</div><div class="feat-sub">State-of-the-art equipment & methods</div></div>
+        </div>
+        <div class="feat-item">
+          <div class="feat-num">3</div>
+          <div><div class="feat-title">Speech Therapy</div><div class="feat-sub">Specialized language rehabilitation</div></div>
+        </div>
+        <div class="feat-item">
+          <div class="feat-num">4</div>
+          <div><div class="feat-title">Home Visit Available</div><div class="feat-sub">Care at your doorstep when needed</div></div>
+        </div>
+      </div>
+      <a href="#contact" class="btn-nav btn-nav-solid" style="margin-top:28px;font-size:15px;padding:13px 26px">Book a Consultation →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SERVICES ═══ -->
+<section class="section section-light" id="services">
+  <div class="sec-header-center reveal">
+    <div class="sec-tag sec-tag-blue">✦ Explore Medical Department</div>
+    <h2 class="sec-title">Our <span style="color:var(--blue)">Services</span></h2>
+    <p class="sec-sub">Comprehensive physiotherapy solutions covering every aspect of physical health and rehabilitation</p>
+  </div>
+  <div class="services-grid">
+    <div class="svc-card reveal reveal-d1">
+      <div class="svc-ic">🦴</div>
+      <div class="svc-title">Shoulder Pain</div>
+      <p class="svc-desc">Shoulder pain physiotherapy focuses on the assessment, diagnosis, and treatment of conditions affecting the shoulder muscles, joints, tendons, and nerves. It helps reduce pain, improve mobility, restore strength, and support recovery from injuries, stiffness, posture-related problems, and everyday strain.</p>
+      <!--<a href="#" class="svc-link">View Details →</a>-->
+    </div>
+    <div class="svc-card reveal reveal-d2">
+      <div class="svc-ic">🏋️</div>
+      <div class="svc-title">Therapeutic Exercises</div>
+      <p class="svc-desc">Therapeutic exercises are specially designed physical activities that help improve strength, flexibility, balance, posture, and overall body movement. These exercises support recovery from pain, injury, surgery, and muscle weakness while promoting long-term physical health and mobility.</p>
+      <!--<a href="#" class="svc-link">View Details →</a>-->
+    </div>
+    <div class="svc-card reveal reveal-d3">
+      <div class="svc-ic">🦴</div>
+      <div class="svc-title">Hip Pain</div>
+      <p class="svc-desc">Hip pain physiotherapy focuses on the assessment, diagnosis, and treatment of conditions affecting the hip joints, muscles, ligaments, and surrounding tissues. It helps reduce pain, improve flexibility and movement, restore strength, and support recovery from injury, arthritis, muscle strain, and posture-related problems.</p>
+      <!--<a href="#" class="svc-link">View Details →</a>-->
+    </div>
+    <div class="svc-card reveal reveal-d1">
+      <div class="svc-ic">🦵</div>
+      <div class="svc-title">Knee Pain</div>
+      <p class="svc-desc">Knee pain physiotherapy focuses on the assessment, diagnosis, and treatment of conditions affecting the knee joints, muscles, ligaments, and tendons. It helps reduce pain, improve mobility, restore strength, and support recovery from injuries, arthritis, sports strain, and everyday movement problems.</p>
+      <!--<a href="#" class="svc-link">View Details →</a>-->
+    </div>
+    <div class="svc-card reveal reveal-d2">
+      <div class="svc-ic">🧍</div>
+      <div class="svc-title">Back Pain</div>
+      <p class="svc-desc">Back pain physiotherapy focuses on the assessment, diagnosis, and treatment of conditions affecting the spine, muscles, joints, and nerves of the back. It helps reduce pain, improve posture and flexibility, restore movement, and support recovery from muscle strain, poor posture, injury, and long-term back problems.</p>
+      <!--<a href="#" class="svc-link">View Details →</a>-->
+    </div>
+    <div class="svc-card reveal reveal-d3">
+      <div class="svc-ic">🦶</div>
+      <div class="svc-title">Foot & Ankle Pain</div>
+      <p class="svc-desc">Foot and ankle pain physiotherapy focuses on the assessment, diagnosis, and treatment of conditions affecting the foot, ankle joints, muscles, ligaments, and tendons. It helps reduce pain, improve balance and mobility, restore strength, and support recovery from injuries, sprains, heel pain, and movement-related problems..</p>
+      <!--<a href="#" class="svc-link">View Details →</a>-->
+    </div>
+    <div class="svc-card reveal reveal-d1">
+      <div class="svc-ic">🧠</div>
+      <div class="svc-title">Neurological Physiotherapy</div>
+      <p class="svc-desc">Neurological physiotherapy focuses on the assessment, diagnosis, and treatment of conditions affecting the brain, spinal cord, and nerves. It helps improve movement, balance, coordination, strength, and independence in individuals recovering from stroke, paralysis, nerve injuries, Parkinson’s disease, and other neurological conditions.</p>
+      <!--<a href="#" class="svc-link">View Details →</a>-->
+    </div>
+    <div class="svc-card reveal reveal-d2" style="background:linear-gradient(135deg,var(--blue) 0%,var(--blue-dark) 100%);border-color:transparent;color:#fff;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center">
+      <div style="font-size:48px;margin-bottom:16px">📋</div>
+      <div class="svc-title" style="color:#fff;font-size:20px">Need a Custom Plan?</div>
+      <p class="svc-desc" style="color:rgba(255,255,255,.7)">Talk to our specialists and get a treatment plan tailored to your specific needs.</p>
+      <a href="#contact" class="btn-nav btn-nav-solid" style="background:#fff;color:var(--blue);margin-top:16px">Contact Us →</a>
+    </div>
+    <div class="svc-card reveal reveal-d3" style="background:var(--teal-light);border-color:rgba(6,200,168,.2)">
+      <div class="svc-ic" style="background:rgba(6,200,168,.15)">🏠</div>
+      <div class="svc-title">Home Visit Service</div>
+      <p class="svc-desc">We provide physiotherapy home visit services across Najafgarh, Dwarka, Uttam Nagar and West Delhi.</p>
+      <a href="#" class="svc-link" style="color:#059e84">View Details →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ VIDEO CTA ═══ -->
+<section class="cta-section">
+  <div class="cta-grid">
+    <div class="cta-text reveal">
+      <div class="sec-tag" style="background:rgba(6,200,168,.15);color:var(--teal)">✦ Watch & Learn</div>
+      <h2 class="sec-title" style="color:#fff;margin-top:12px">See How We <span style="color:var(--teal)">Transform Lives</span> Every Day</h2>
+      <p class="sec-sub" style="color:rgba(255,255,255,.6)">Watch our video testimonials and educational content to understand how our approach leads to lasting recovery.</p>
+      <ul class="cta-points">
+        <li><div class="cp-dot">✓</div> Personalized treatment plans for each patient</li>
+        <li><div class="cp-dot">✓</div> World-class equipment and modern techniques</li>
+        <li><div class="cp-dot">✓</div> Home visit physiotherapy available on request</li>
+        <li><div class="cp-dot">✓</div> Trusted by 1000+ patients across Delhi NCR</li>
+      </ul>
+      <a href="#contact" class="btn-nav btn-nav-solid" style="margin-top:8px;font-size:15px;padding:13px 26px">Book Your Session →</a>
+    </div>
+    <div class="reveal reveal-d2">
+      <div class="vid-mockup" onclick="alert('Video would play here')">
+        <div class="play-btn">▶</div>
+        <div class="vid-label">Best Physiotherapy in Delhi — Watch Now</div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px">
+        <div style="background:rgba(255,255,255,.06);border:1px solid var(--border-dark);border-radius:12px;padding:16px;text-align:center">
+          <div style="font-family:'Clash Display',sans-serif;font-size:24px;font-weight:700;color:#fff">4.9★</div>
+          <div style="font-size:12px;color:rgba(255,255,255,.5);margin-top:4px">Google Rating</div>
+        </div>
+        <div style="background:rgba(255,255,255,.06);border:1px solid var(--border-dark);border-radius:12px;padding:16px;text-align:center">
+          <div style="font-family:'Clash Display',sans-serif;font-size:24px;font-weight:700;color:#fff">500+</div>
+          <div style="font-size:12px;color:rgba(255,255,255,.5);margin-top:4px">Reviews</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ GALLERY ═══ -->
+<section class="section section-light">
+  <div class="sec-header-center reveal">
+    <div class="sec-tag sec-tag-blue">✦ Our Clinic</div>
+    <h2 class="sec-title">World-Class <span style="color:var(--blue)">Facilities</span></h2>
+    <p class="sec-sub">State-of-the-art clinics designed for comfort, recovery, and cutting-edge treatment</p>
+  </div>
+  <div class="gallery-grid reveal">
+    <div class="g-item" style="background:linear-gradient(135deg,#1354F9,#0d2d6b)"><span style="font-size:72px">🏥</span></div>
+    <div class="g-item" style="background:linear-gradient(135deg,#06C8A8,#0B5F8A)"><span style="font-size:60px">🩺</span></div>
+    <div class="g-item" style="background:linear-gradient(135deg,#152250,#1354F9)"><span style="font-size:60px">💪</span></div>
+    <div class="g-item" style="background:linear-gradient(135deg,#dde9ff,#b6ceff)"><span style="font-size:72px">👨‍⚕️</span></div>
+  </div>
+</section>
+
+<!-- ═══ TEAM ═══ -->
+<section class="section" id="team">
+  <div class="sec-header-center reveal">
+    <div class="sec-tag sec-tag-blue">✦ Meet Our Doctors</div>
+    <h2 class="sec-title">Leading Medical Professionals <span style="color:var(--blue)">At Your Service</span></h2>
+    <p class="sec-sub">Our team of expert physiotherapists dedicated to your speedy, lasting recovery</p>
+  </div>
+  <div class="team-slider-wrap reveal">
+    <div class="team-track" id="teamTrack">
+      <div class="doc-card">
+        <div class="doc-img">👨‍⚕️</div>
+        <div class="doc-body">
+          <div class="doc-name">Dr. Narendra Yadav</div>
+          <div class="doc-role">Senior Physiotherapist</div>
+          <div class="doc-phone">📞 74286-00000</div>
+        </div>
+      </div>
+      <div class="doc-card">
+        <div class="doc-img">👨‍⚕️</div>
+        <div class="doc-body">
+          <div class="doc-name">Dr. Nilesh Yadav</div>
+          <div class="doc-role">Neurological Specialist</div>
+          <div class="doc-phone">📞 74286-00001</div>
+        </div>
+      </div>
+      <div class="doc-card">
+        <div class="doc-img" style="background:linear-gradient(135deg,#fde8ff,#d9b4ff)">👩‍⚕️</div>
+        <div class="doc-body">
+          <div class="doc-name">Dr. Sanjay Ratna</div>
+          <div class="doc-role">Sports Physiotherapist</div>
+          <div class="doc-phone">📞 74286-00002</div>
+        </div>
+      </div>
+      <div class="doc-card">
+        <div class="doc-img" style="background:linear-gradient(135deg,#e8ffe8,#a4f0a4)">👩‍⚕️</div>
+        <div class="doc-body">
+          <div class="doc-name">Dr. Jyoti Singh</div>
+          <div class="doc-role">Occupational Therapist</div>
+          <div class="doc-phone">📞 74286-00003</div>
+        </div>
+      </div>
+      <div class="doc-card">
+        <div class="doc-img" style="background:linear-gradient(135deg,#fff3e8,#ffd4a4)">👨‍⚕️</div>
+        <div class="doc-body">
+          <div class="doc-name">Dr. Amit Sharma</div>
+          <div class="doc-role">Cardiopulmonary Expert</div>
+          <div class="doc-phone">📞 74286-00004</div>
+        </div>
+      </div>
+      <div class="doc-card">
+        <div class="doc-img" style="background:linear-gradient(135deg,#e8f4ff,#a4d4ff)">👩‍⚕️</div>
+        <div class="doc-body">
+          <div class="doc-name">Dr. Priya Mehta</div>
+          <div class="doc-role">Speech Therapist</div>
+          <div class="doc-phone">📞 74286-00005</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="team-arrows">
+    <button class="team-arrow" id="tprev" aria-label="Prev">‹</button>
+    <button class="team-arrow" id="tnext" aria-label="Next">›</button>
+  </div>
+</section>
+
+<!-- ═══ TESTIMONIALS ═══ -->
+<section class="section section-light">
+  <div class="sec-header-center reveal">
+    <div class="sec-tag sec-tag-blue">✦ Patient Testimonials</div>
+    <h2 class="sec-title">What Our <span style="color:var(--blue)">Patients Say</span></h2>
+    <p class="sec-sub">Real experiences from real people who regained their quality of life with us</p>
+  </div>
+  <div class="test-grid">
+    <div class="test-card reveal reveal-d1">
+      <div class="test-stars">★★★★★</div>
+      <p class="test-quote">"Dr. Narendra Yadav and his team are absolutely exceptional. After my knee surgery I could barely walk — within 6 weeks of treatment I was back to jogging. Truly life-changing care."</p>
+      <div class="test-author"><div class="test-av">😊</div><div><div class="test-name">Rahul Sharma</div><div class="test-sub">Knee Replacement Recovery</div></div></div>
+    </div>
+    <div class="test-card reveal reveal-d2">
+      <div class="test-stars">★★★★★</div>
+      <p class="test-quote">"I suffered from chronic back pain for years. The physiotherapy sessions at PhysioCare completely transformed my life. The staff is professional, caring, and highly skilled."</p>
+      <div class="test-author"><div class="test-av">😊</div><div><div class="test-name">Priya Gupta</div><div class="test-sub">Chronic Back Pain Relief</div></div></div>
+    </div>
+    <div class="test-card reveal reveal-d3">
+      <div class="test-stars">★★★★★</div>
+      <p class="test-quote">"Best physiotherapy center in Dwarka! My son was suffering from speech issues and the speech therapy sessions here made a dramatic difference. Highly recommend to everyone."</p>
+      <div class="test-author"><div class="test-av">😊</div><div><div class="test-name">Sunita Verma</div><div class="test-sub">Speech Therapy — Parent</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CONTACT STRIP ═══ -->
+<div class="contact-strip" id="contact">
+  <div class="cs-text">
+    <h2>Ready to Start Your Recovery Journey?</h2>
+    <p>Book an appointment today — same-day slots available at all 7 centers</p>
+  </div>
+  <div class="cs-actions">
+    <a href="tel:+917428600000" class="btn-white">📞 Call Now</a>
+    <a href="https://wa.me/917428600000" class="btn-outline-w">💬 WhatsApp Us</a>
+  </div>
+</div>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="footer-grid">
+    <div class="foot-brand">
+      <a href="#" class="logo" style="color:#fff;margin-bottom:14px">
+        <div class="logo-mark">✚</div>
+        PHYSIO<em>CARE</em>
+      </a>
+      <p>Providing exceptional physiotherapy and rehabilitation services across Delhi NCR since 2006. Your recovery is our mission.</p>
+    </div>
+    <div class="foot-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#team">Our Team</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#">Musculoskeletal</a></li>
+        <li><a href="#">Neurological</a></li>
+        <li><a href="#">Sport Therapy</a></li>
+        <li><a href="#">Speech Therapy</a></li>
+        <li><a href="#">Home Visits</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h4>Contact Info</h4>
+      <ul class="foot-contact">
+        <li><span>📍</span><span>Sector-12, Dwarka, New Delhi — 110078</span></li>
+        <li><span>📞</span><span>+91-74286-00000</span></li>
+        <li><span>✉️</span><span>info@physiocare.in</span></li>
+        <li><span>🕘</span><span>Mon–Sat: 9:00 AM – 7:00 PM</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <div>© 2024 PhysioCare. All rights reserved.</div>
+    <div>Designed with ♥ for better health outcomes</div>
+  </div>
+</footer>
+
+<script>
+// ── NAVBAR SCROLL ──
+window.addEventListener('scroll',()=>{
+  const nb=document.getElementById('navbar');
+  nb.classList.toggle('scrolled',scrollY>60);
+});
+
+// ── MOBILE MENU ──
+function toggleMenu(){
+  document.getElementById('navMobile').style.display=
+    document.getElementById('navMobile').style.display==='flex'?'none':'flex';
+}
+
+// ── HERO SLIDER ──
+let hi=0;const ht=3;
+const hTrack=document.getElementById('heroTrack');
+const hSlides=document.querySelectorAll('.hero-slide');
+const hDots=document.querySelectorAll('.hdot');
+function heroGo(n){
+  hSlides[hi].classList.remove('active');
+  hDots[hi].classList.remove('active');
+  hi=(n+ht)%ht;
+  hSlides[hi].classList.add('active');
+  hDots[hi].classList.add('active');
+  hTrack.style.transform=`translateX(${-hi*33.333}%)`;
+}
+document.getElementById('hnext').onclick=()=>heroGo(hi+1);
+document.getElementById('hprev').onclick=()=>heroGo(hi-1);
+let hAuto=setInterval(()=>heroGo(hi+1),5000);
+document.querySelector('.hero').addEventListener('mouseenter',()=>clearInterval(hAuto));
+document.querySelector('.hero').addEventListener('mouseleave',()=>{hAuto=setInterval(()=>heroGo(hi+1),5000)});
+
+// ── TEAM SLIDER ──
+let ti=0;
+const tTrack=document.getElementById('teamTrack');
+const tCards=tTrack.querySelectorAll('.doc-card');
+const cardW=264;
+function teamGo(dir){
+  const max=Math.max(0,tCards.length-Math.floor(tTrack.parentElement.offsetWidth/cardW));
+  ti=Math.max(0,Math.min(max,ti+dir));
+  tTrack.style.transform=`translateX(${-ti*cardW}px)`;
+}
+document.getElementById('tnext').onclick=()=>teamGo(1);
+document.getElementById('tprev').onclick=()=>teamGo(-1);
+
+// ── SCROLL REVEAL ──
+const ro=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');ro.unobserve(e.target)}});
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+
+// ── SMOOTH NAV LINKS ──
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const t=document.querySelector(a.getAttribute('href'));
+    if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});
+    document.getElementById('navMobile').style.display='none';}
+  });
+});
+</script>
+</body>
+</html>

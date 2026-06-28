@@ -89,7 +89,6 @@ body{font-family:'Epilogue',sans-serif;background:var(--white);color:var(--text)
 .btn-hero-p:hover{background:var(--blue-dark);transform:translateY(-2px);box-shadow:0 12px 30px rgba(19,84,249,.45)}
 .btn-hero-s{background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.2)}
 .btn-hero-s:hover{background:rgba(255,255,255,.15);border-color:rgba(255,255,255,.4)}
-/* slider controls */
 .hero-ctrl{position:absolute;bottom:44px;left:8%;display:flex;align-items:center;gap:18px;z-index:10}
 .hero-arrows{display:flex;gap:8px}
 .hero-arrow{width:46px;height:46px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.06);backdrop-filter:blur(10px);border-radius:12px;color:#fff;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:var(--trans)}
@@ -97,7 +96,6 @@ body{font-family:'Epilogue',sans-serif;background:var(--white);color:var(--text)
 .hero-dots{display:flex;gap:8px;align-items:center}
 .hdot{width:7px;height:7px;border-radius:4px;background:rgba(255,255,255,.3);cursor:pointer;transition:var(--trans)}
 .hdot.active{width:28px;background:var(--teal)}
-/* floating card */
 .hero-float{position:absolute;right:6%;top:50%;transform:translateY(-50%);background:rgba(11,22,58,.8);backdrop-filter:blur(24px);border:1px solid var(--border-dark);border-radius:20px;padding:28px 24px;width:272px;animation:floaty 5s ease-in-out infinite}
 @keyframes floaty{0%,100%{transform:translateY(-50%)}50%{transform:translateY(calc(-50% - 12px))}}
 .fc-head{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--light);margin-bottom:14px;font-weight:500}
@@ -105,7 +103,6 @@ body{font-family:'Epilogue',sans-serif;background:var(--white);color:var(--text)
 .fc-row:last-child{border-bottom:none}
 .fc-ic{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0}
 .ic-b{background:rgba(19,84,249,.15)}
-.ic-t{background:rgba(6,200,168,.15)}
 .ic-a{background:rgba(250,199,117,.15)}
 .fc-num{font-family:'Clash Display',sans-serif;font-size:18px;font-weight:600;color:#fff}
 .fc-lbl{font-size:12px;color:var(--light)}
@@ -113,11 +110,8 @@ body{font-family:'Epilogue',sans-serif;background:var(--white);color:var(--text)
 /* ─── SECTION COMMON ─── */
 .section{padding:90px 60px}
 .section-light{background:var(--off)}
-.section-dark{background:var(--navy);color:#fff}
-.section-dark-2{background:var(--navy2);color:#fff}
 .sec-tag{display:inline-flex;align-items:center;gap:8px;font-size:11.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:7px 16px;border-radius:100px;margin-bottom:16px}
 .sec-tag-blue{background:var(--blue-light);color:var(--blue)}
-.sec-tag-dark{background:rgba(19,84,249,.15);color:rgba(19,84,249,.9)}
 .sec-tag-teal{background:var(--teal-light);color:#059e84}
 .sec-title{font-family:'Clash Display',sans-serif;font-size:clamp(30px,3.5vw,46px);font-weight:700;line-height:1.1;letter-spacing:-.025em;margin-bottom:14px}
 .sec-sub{font-size:16px;color:var(--muted);font-weight:300;line-height:1.7;max-width:560px}
@@ -125,8 +119,6 @@ body{font-family:'Epilogue',sans-serif;background:var(--white);color:var(--text)
 .sec-header-center .sec-sub{margin:0 auto}
 
 /* ─── WHY CHOOSE US ─── */
-
-/* ─── .why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;max-width:1200px;margin:0 auto} ─── */
 .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1200px;margin:0 auto}
 .why-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:34px 24px;position:relative;overflow:hidden;transition:var(--trans);cursor:default}
 .why-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--blue),var(--teal));transform:scaleX(0);transform-origin:left;transition:transform .4s ease}
@@ -135,7 +127,6 @@ body{font-family:'Epilogue',sans-serif;background:var(--white);color:var(--text)
 .why-ic{width:58px;height:58px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:26px;margin-bottom:22px}
 .wic-1{background:var(--blue-light)}
 .wic-2{background:var(--teal-light)}
-.wic-3{background:#FFF5E6}
 .wic-4{background:#F0FFF4}
 .why-num{font-family:'Clash Display',sans-serif;font-size:38px;font-weight:700;color:var(--text);letter-spacing:-.02em;line-height:1}
 .why-num span{color:var(--blue)}
@@ -144,8 +135,6 @@ body{font-family:'Epilogue',sans-serif;background:var(--white);color:var(--text)
 
 /* ─── ABOUT SECTION ─── */
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;max-width:1200px;margin:0 auto}
-.about-img-wrap{position:relative}
-.about-img{width:100%;aspect-ratio:4/5;border-radius:24px;object-fit:cover;background:linear-gradient(135deg,#dbe8ff 0%,#b6d0ff 100%);display:flex;align-items:center;justify-content:center;font-size:80px;overflow:hidden}
 .about-img-placeholder{height:830px;width:100%;aspect-ratio:4/5;border-radius:24px;background:linear-gradient(135deg,#1354F9 0%,#0d2d6b 100%);display:flex;align-items:center;justify-content:center;font-size:100px;position:relative;overflow:hidden}
 .about-img-placeholder::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
 .about-img-text{position:relative;z-index:1;text-align:center;color:rgba(255,255,255,.5);font-size:14px;font-weight:300;margin-top:12px}
@@ -163,17 +152,213 @@ body{font-family:'Epilogue',sans-serif;background:var(--white);color:var(--text)
 .feat-title{font-size:13.5px;font-weight:500;color:var(--text);margin-bottom:3px}
 .feat-sub{font-size:12px;color:var(--muted);font-weight:300}
 
-/* ─── SERVICES ─── */
-.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1100px;margin:0 auto}
-.svc-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:30px 24px;transition:var(--trans);cursor:default;position:relative;overflow:hidden}
-.svc-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--blue),var(--teal));opacity:0;transition:opacity .3s}
-.svc-card:hover::before{opacity:1}
-.svc-card:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(19,84,249,.1)}
-.svc-ic{width:52px;height:52px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:18px;background:var(--blue-light)}
-.svc-title{font-family:'Clash Display',sans-serif;font-size:16px;font-weight:600;color:var(--text);margin-bottom:10px}
-.svc-desc{font-size:13.5px;color:var(--muted);line-height:1.7;font-weight:300;margin-bottom:18px}
-.svc-link{font-size:13px;font-weight:500;color:var(--blue);text-decoration:none;display:inline-flex;align-items:center;gap:6px;transition:var(--trans)}
-.svc-link:hover{gap:10px}
+/* ═══════════════════════════════════════
+   SERVICES — IMAGE CARD GRID
+   ═══════════════════════════════════════ */
+.services-img-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
+  max-width:1200px;
+  margin:0 auto;
+}
+
+/* The main service image card */
+.svc-img-card{
+  border-radius:20px;
+  overflow:hidden;
+  background:var(--navy2);
+  box-shadow:0 4px 24px rgba(0,0,0,.08);
+  transition:transform .4s cubic-bezier(.4,0,.2,1), box-shadow .4s ease;
+  cursor:default;
+  position:relative;
+}
+.svc-img-card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 24px 56px rgba(19,84,249,.18);
+}
+
+/* Image wrapper — fixed tall aspect ratio */
+.svc-img-wrap{
+  position:relative;
+  width:100%;
+  aspect-ratio:4/3;
+  overflow:hidden;
+}
+.svc-img-wrap img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  transition:transform .6s cubic-bezier(.4,0,.2,1), filter .4s ease;
+  filter:brightness(.88) saturate(1.05);
+}
+.svc-img-card:hover .svc-img-wrap img{
+  transform:scale(1.07);
+  filter:brightness(.7) saturate(1.1);
+}
+
+/* Gradient overlay that intensifies on hover */
+.svc-img-overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    to top,
+    rgba(5,13,36,.55) 0%,
+    rgba(5,13,36,.0) 60%
+  );
+  transition:background .4s ease;
+}
+.svc-img-card:hover .svc-img-overlay{
+  background:linear-gradient(
+    to top,
+    rgba(19,84,249,.72) 0%,
+    rgba(5,13,36,.18) 100%
+  );
+}
+
+/* Hover tag pill that appears over image */
+.svc-img-tag{
+  position:absolute;
+  top:16px;
+  left:16px;
+  background:rgba(255,255,255,.15);
+  backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,.25);
+  color:#fff;
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  padding:5px 12px;
+  border-radius:100px;
+  opacity:0;
+  transform:translateY(-6px);
+  transition:opacity .35s ease, transform .35s ease;
+}
+.svc-img-card:hover .svc-img-tag{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* Text block below image */
+.svc-img-body{
+  padding:22px 22px 24px;
+  background:var(--white);
+  border-top:none;
+  transition:background .35s ease;
+}
+.svc-img-card:hover .svc-img-body{
+  background:var(--blue);
+}
+
+.svc-img-title{
+  font-family:'Clash Display',sans-serif;
+  font-size:17px;
+  font-weight:700;
+  color:var(--text);
+  margin-bottom:8px;
+  letter-spacing:-.01em;
+  transition:color .35s ease;
+}
+.svc-img-card:hover .svc-img-title{
+  color:#fff;
+}
+
+.svc-img-desc{
+  font-size:13px;
+  color:var(--muted);
+  line-height:1.7;
+  font-weight:300;
+  transition:color .35s ease;
+}
+.svc-img-card:hover .svc-img-desc{
+  color:rgba(255,255,255,.8);
+}
+
+/* Bottom row: "Learn More" arrow */
+.svc-img-footer{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-top:14px;
+}
+.svc-img-link{
+  font-size:12.5px;
+  font-weight:600;
+  color:var(--blue);
+  text-decoration:none;
+  display:inline-flex;
+  align-items:center;
+  gap:5px;
+  letter-spacing:.02em;
+  transition:color .35s ease, gap .3s ease;
+}
+.svc-img-card:hover .svc-img-link{
+  color:rgba(255,255,255,.9);
+  gap:9px;
+}
+.svc-img-arrow{
+  width:32px;
+  height:32px;
+  border-radius:50%;
+  background:var(--blue-light);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:15px;
+  color:var(--blue);
+  transition:background .35s ease, color .35s ease, transform .3s ease;
+}
+.svc-img-card:hover .svc-img-arrow{
+  background:rgba(255,255,255,.2);
+  color:#fff;
+  transform:rotate(-45deg);
+}
+
+/* ── Two special cards at bottom (CTA + Home Visit) ── */
+.svc-cta-card{
+  border-radius:20px;
+  overflow:hidden;
+  background:linear-gradient(135deg,var(--blue) 0%,var(--blue-dark) 100%);
+  padding:36px 28px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:flex-start;
+  text-align:left;
+  box-shadow:0 4px 24px rgba(19,84,249,.2);
+  transition:transform .4s ease, box-shadow .4s ease;
+}
+.svc-cta-card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 24px 56px rgba(19,84,249,.35);
+}
+.svc-cta-icon{font-size:44px;margin-bottom:18px}
+.svc-cta-title{font-family:'Clash Display',sans-serif;font-size:20px;font-weight:700;color:#fff;margin-bottom:10px}
+.svc-cta-desc{font-size:13.5px;color:rgba(255,255,255,.72);line-height:1.7;font-weight:300;margin-bottom:20px}
+
+.svc-home-card{
+  border-radius:20px;
+  overflow:hidden;
+  background:var(--teal-light);
+  border:1.5px solid rgba(6,200,168,.25);
+  padding:36px 28px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  box-shadow:0 4px 24px rgba(6,200,168,.08);
+  transition:transform .4s ease, box-shadow .4s ease;
+}
+.svc-home-card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 24px 56px rgba(6,200,168,.2);
+}
+.svc-home-icon{font-size:44px;margin-bottom:18px}
+.svc-home-title{font-family:'Clash Display',sans-serif;font-size:20px;font-weight:700;color:var(--text);margin-bottom:10px}
+.svc-home-desc{font-size:13.5px;color:var(--muted);line-height:1.7;font-weight:300;margin-bottom:20px}
+.svc-home-link{font-size:13px;font-weight:600;color:#059e84;text-decoration:none;display:inline-flex;align-items:center;gap:6px;transition:gap .3s ease}
+.svc-home-link:hover{gap:10px}
 
 /* ─── TEAM SLIDER ─── */
 .team-slider-wrap{position:relative;overflow:hidden}
@@ -196,7 +381,6 @@ body{font-family:'Epilogue',sans-serif;background:var(--white);color:var(--text)
 .cta-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;max-width:1100px;margin:0 auto;position:relative;z-index:1}
 .cta-text{color:#fff}
 .cta-text .sec-title{color:#fff}
-.cta-text .sec-sub{color:rgba(255,255,255,.6)}
 .cta-points{list-style:none;margin:28px 0;display:flex;flex-direction:column;gap:14px}
 .cta-points li{display:flex;align-items:center;gap:12px;font-size:15px;color:rgba(255,255,255,.8);font-weight:300}
 .cp-dot{width:20px;height:20px;border-radius:6px;background:rgba(6,200,168,.2);border:1px solid rgba(6,200,168,.3);display:flex;align-items:center;justify-content:center;color:var(--teal);font-size:11px;flex-shrink:0}
@@ -205,15 +389,6 @@ body{font-family:'Epilogue',sans-serif;background:var(--white);color:var(--text)
 .play-btn{width:72px;height:72px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:0 0 0 16px rgba(255,255,255,.15);transition:var(--trans)}
 .vid-mockup:hover .play-btn{transform:scale(1.1)}
 .vid-label{position:absolute;bottom:20px;left:20px;color:#fff;font-size:13px;font-weight:500;opacity:.8}
-
-/* ─── GALLERY ─── */
-.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:auto auto;gap:16px;max-width:1100px;margin:0 auto}
-.g-item{border-radius:16px;overflow:hidden;background:linear-gradient(135deg,#dde9ff,#b6ceff);display:flex;align-items:center;justify-content:center;font-size:48px;transition:var(--trans);cursor:default}
-.g-item:hover{transform:scale(1.02)}
-.g-item:nth-child(1){grid-column:1/2;grid-row:1/3;aspect-ratio:3/4}
-.g-item:nth-child(2){grid-column:2/3;grid-row:1/2;aspect-ratio:3/2}
-.g-item:nth-child(3){grid-column:3/4;grid-row:1/2;aspect-ratio:3/2}
-.g-item:nth-child(4){grid-column:2/4;grid-row:2/3;aspect-ratio:3/1.5}
 
 /* ─── TESTIMONIALS ─── */
 .test-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1100px;margin:0 auto}
@@ -239,7 +414,6 @@ body{font-family:'Epilogue',sans-serif;background:var(--white);color:var(--text)
 /* ─── FOOTER ─── */
 footer{background:var(--navy);color:rgba(255,255,255,.6);padding:60px 60px 30px;border-top:1px solid var(--border-dark)}
 .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.5fr;gap:48px;margin-bottom:48px}
-.foot-brand .logo{margin-bottom:16px;display:inline-flex}
 .foot-brand p{font-size:13.5px;line-height:1.75;font-weight:300;max-width:260px}
 .foot-col h4{font-family:'Clash Display',sans-serif;font-size:14px;font-weight:600;color:#fff;margin-bottom:16px;letter-spacing:.03em}
 .foot-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
@@ -259,9 +433,9 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:60px 60px 30px;
 
 /* ─── RESPONSIVE ─── */
 @media(max-width:1100px){
-  .about-grid{gap:48px}
+  .about-grid{gap:48px;grid-template-columns:1fr}
   .why-grid{grid-template-columns:repeat(2,1fr)}
-  .services-grid{grid-template-columns:repeat(2,1fr)}
+  .services-img-grid{grid-template-columns:repeat(2,1fr)}
   .cta-grid{grid-template-columns:1fr;gap:40px}
   .test-grid{grid-template-columns:1fr}
   .footer-grid{grid-template-columns:1fr 1fr}
@@ -275,15 +449,11 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:60px 60px 30px;
   .hero-float{display:none}
   .section{padding:70px 20px}
   .why-grid{grid-template-columns:1fr}
-  .about-grid{grid-template-columns:1fr;gap:40px}
-  .services-grid{grid-template-columns:1fr}
-  .gallery-grid{grid-template-columns:1fr}
-  .g-item{aspect-ratio:16/9!important;grid-column:auto!important;grid-row:auto!important}
+  .services-img-grid{grid-template-columns:1fr}
   .contact-strip{flex-direction:column;padding:40px 20px}
   .cs-actions{flex-direction:column;width:100%}
   .footer-grid{grid-template-columns:1fr;gap:32px}
   .foot-bottom{flex-direction:column;gap:10px;text-align:center}
-  .team-arrows{justify-content:flex-start}
   .nav-links{display:none}
   .nav-actions .btn-nav-ghost{display:none}
   .hamburger{display:flex}
@@ -316,7 +486,6 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:60px 60px 30px;
     <li><a href="#" class="active">Home</a></li>
     <li><a href="#services">Services</a></li>
     <li><a href="#team">Our Team</a></li>
-    <!--<li><a href="#about">About Us</a></li>-->
     <li><a href="#contact">Contact Us</a></li>
   </ul>
   <div class="nav-actions">
@@ -338,14 +507,9 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:60px 60px 30px;
 <!-- ═══ HERO ═══ -->
 <section class="hero" id="home">
   <div class="hero-track" id="heroTrack">
-
     <div class="hero-slide active">
-      <div class="hero-bg hero-bg-1"></div>
-      <div class="hero-mesh"></div>
-      <div class="hero-grid"></div>
-      <div class="hero-overlay"></div>
+      <div class="hero-bg hero-bg-1"></div><div class="hero-mesh"></div><div class="hero-grid"></div><div class="hero-overlay"></div>
       <div class="hero-content">
-       <!-- <div class="hero-badge">✦ Trusted Since 2006</div>-->
         <h1>Professional <em>Physiotherapy</em> That Gets Results</h1>
         <p>We help you recover faster, move freely, and live without pain — with evidence-based treatments tailored to you.</p>
         <div class="hero-btns">
@@ -354,28 +518,17 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:60px 60px 30px;
         </div>
       </div>
     </div>
-
     <div class="hero-slide">
-      <div class="hero-bg hero-bg-2"></div>
-      <div class="hero-mesh"></div>
-      <div class="hero-grid"></div>
-      <div class="hero-overlay"></div>
+      <div class="hero-bg hero-bg-2"></div><div class="hero-mesh"></div><div class="hero-grid"></div><div class="hero-overlay"></div>
       <div class="hero-content">
         <div class="hero-badge">✦ Advanced Technology</div>
         <h1>Modern Equipment, <em>Expert</em> Hands</h1>
         <p>State-of-the-art facilities combined with our specialists' expertise deliver outcomes that truly exceed expectations.</p>
-        <div class="hero-btns">
-          <a href="#services" class="btn-hero btn-hero-p">Our Services →</a>
-          <!--<a href="#team" class="btn-hero btn-hero-s">Meet the Team</a>-->
-        </div>
+        <div class="hero-btns"><a href="#services" class="btn-hero btn-hero-p">Our Services →</a></div>
       </div>
     </div>
-
     <div class="hero-slide">
-      <div class="hero-bg hero-bg-3"></div>
-      <div class="hero-mesh"></div>
-      <div class="hero-grid"></div>
-      <div class="hero-overlay"></div>
+      <div class="hero-bg hero-bg-3"></div><div class="hero-mesh"></div><div class="hero-grid"></div><div class="hero-overlay"></div>
       <div class="hero-content">
         <div class="hero-badge">✦ 1,000+ Happy Patients</div>
         <h1>Care You Can <em>Trust,</em> Results You'll Feel</h1>
@@ -386,9 +539,7 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:60px 60px 30px;
         </div>
       </div>
     </div>
-
   </div>
-
   <div class="hero-ctrl">
     <div class="hero-arrows">
       <button class="hero-arrow" id="hprev" aria-label="Prev">‹</button>
@@ -400,11 +551,9 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:60px 60px 30px;
       <div class="hdot" onclick="heroGo(2)"></div>
     </div>
   </div>
-
   <div class="hero-float">
     <div class="fc-head">Quick Stats</div>
     <div class="fc-row"><div class="fc-ic ic-b">🩺</div><div><div class="fc-num">10K+</div><div class="fc-lbl">Sessions Delivered</div></div></div>
-    <!--<div class="fc-row"><div class="fc-ic ic-t">👨‍⚕️</div><div><div class="fc-num">35+</div><div class="fc-lbl">Specialists</div></div></div>-->
     <div class="fc-row"><div class="fc-ic ic-a">🏥</div><div><div class="fc-num">7 Yrs</div><div class="fc-lbl">Of Experience</div></div></div>
   </div>
 </section>
@@ -429,13 +578,6 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:60px 60px 30px;
       <div class="why-label">Professionals</div>
       <p class="why-desc">A team of 35+ certified physiotherapists and specialists delivering evidence-based, compassionate care every single day.</p>
     </div>
-    <!--
-    <div class="why-card reveal reveal-d3">
-      <div class="why-ic wic-3">🤝</div>
-      <div class="why-num">18<span>+</span></div>
-      <div class="why-label">Years Experience</div>
-      <p class="why-desc">Nearly two decades of trusted physiotherapy excellence — proven results in pain relief, rehabilitation, and wellness.</p>
-    </div>-->
     <div class="why-card reveal reveal-d4">
       <div class="why-ic wic-4">🏥</div>
       <div class="why-num">1</div>
@@ -448,50 +590,31 @@ footer{background:var(--navy);color:rgba(255,255,255,.6);padding:60px 60px 30px;
 <!-- ═══ ABOUT DOCTOR ═══ -->
 <section class="section" id="about">
   <div class="about-grid">
-    <div class="about-img-wrap reveal">
+    <div style="position:relative" class="reveal">
       <div class="about-img-placeholder">
         <div>
-          
           <span class="about-img-icon"><img src="Dr.photo.jpg"></span>
           <div class="about-img-text">Dr. Narendra Yadav<br><small>Senior Physiotherapist</small></div>
         </div>
       </div>
       <div class="about-badge">
         <div class="ab-icon">🏆</div>
-        <div>
-          <div class="ab-num">7+</div>
-          <div class="ab-lbl">Years of Excellence</div>
-        </div>
+        <div><div class="ab-num">7+</div><div class="ab-lbl">Years of Excellence</div></div>
       </div>
     </div>
     <div class="reveal reveal-d1">
       <div class="sec-tag sec-tag-teal">✦ About Dr. Deshraj Paul</div>
       <h2 class="sec-title">We Focus On <span style="color:var(--blue)">Patient-Centered</span> Care & Recovery</h2>
-      <p style="font-size:15px;color:var(--muted);line-height:1.8;font-weight:300;margin-top:16px">Dr. Deshraj Paul is a dedicated physiotherapist providing professional physiotherapy services across Delhi NCR. He specializes in helping patients recover from pain, injuries, and mobility-related conditions through personalized treatment plans and modern physiotherapy techniques.
-
-He completed his Bachelor of Physiotherapy (B.P.T) from Bundelkhand University and is committed to delivering quality care focused on improving strength, movement, flexibility, and overall well-being.</p>
+      <p style="font-size:15px;color:var(--muted);line-height:1.8;font-weight:300;margin-top:16px">Dr. Deshraj Paul is a dedicated physiotherapist providing professional physiotherapy services across Delhi NCR. He specializes in helping patients recover from pain, injuries, and mobility-related conditions through personalized treatment plans and modern physiotherapy techniques.<br><br>He completed his Bachelor of Physiotherapy (B.P.T) from Bundelkhand University and is committed to delivering quality care focused on improving strength, movement, flexibility, and overall well-being.</p>
       <div class="about-pills">
         <span class="pill"><span>🎓</span> Bachelor of physiotherapy/B.P.T</span>
         <span class="pill"><span>📍</span> Delhi NCR</span>
-        <!--<span class="pill"><span>⭐</span> 4.9 Rating</span>-->
       </div>
       <div class="about-features">
-        <div class="feat-item">
-          <div class="feat-num">1</div>
-          <div><div class="feat-title">Compassionate Healthcare</div><div class="feat-sub">Patient-first approach in every session</div></div>
-        </div>
-        <div class="feat-item">
-          <div class="feat-num">2</div>
-          <div><div class="feat-title">Advanced Medical Technology</div><div class="feat-sub">State-of-the-art equipment & methods</div></div>
-        </div>
-        <div class="feat-item">
-          <div class="feat-num">3</div>
-          <div><div class="feat-title">Speech Therapy</div><div class="feat-sub">Specialized language rehabilitation</div></div>
-        </div>
-        <div class="feat-item">
-          <div class="feat-num">4</div>
-          <div><div class="feat-title">Home Visit Available</div><div class="feat-sub">Care at your doorstep when needed</div></div>
-        </div>
+        <div class="feat-item"><div class="feat-num">1</div><div><div class="feat-title">Compassionate Healthcare</div><div class="feat-sub">Patient-first approach in every session</div></div></div>
+        <div class="feat-item"><div class="feat-num">2</div><div><div class="feat-title">Advanced Medical Technology</div><div class="feat-sub">State-of-the-art equipment & methods</div></div></div>
+        <div class="feat-item"><div class="feat-num">3</div><div><div class="feat-title">Speech Therapy</div><div class="feat-sub">Specialized language rehabilitation</div></div></div>
+        <div class="feat-item"><div class="feat-num">4</div><div><div class="feat-title">Home Visit Available</div><div class="feat-sub">Care at your doorstep when needed</div></div></div>
       </div>
       <a href="#contact" class="btn-nav btn-nav-solid" style="margin-top:28px;font-size:15px;padding:13px 26px">Book a Consultation →</a>
     </div>
@@ -505,61 +628,144 @@ He completed his Bachelor of Physiotherapy (B.P.T) from Bundelkhand University a
     <h2 class="sec-title">Our <span style="color:var(--blue)">Services</span></h2>
     <p class="sec-sub">Comprehensive physiotherapy solutions covering every aspect of physical health and rehabilitation</p>
   </div>
-  <div class="services-grid">
-    <div class="svc-card reveal reveal-d1">
-      <div class="svc-ic">🦴</div>
-      <div class="svc-title">Shoulder Pain</div>
-      <p class="svc-desc">Shoulder pain physiotherapy focuses on the assessment, diagnosis, and treatment of conditions affecting the shoulder muscles, joints, tendons, and nerves. It helps reduce pain, improve mobility, restore strength, and support recovery from injuries, stiffness, posture-related problems, and everyday strain.</p>
-      <!--<a href="#" class="svc-link">View Details →</a>-->
+
+  <div class="services-img-grid">
+
+    <!-- 1. Shoulder Pain -->
+    <div class="svc-img-card reveal reveal-d1">
+      <div class="svc-img-wrap">
+        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&q=80&fit=crop" alt="Shoulder Pain Physiotherapy" loading="lazy">
+        <div class="svc-img-overlay"></div>
+        <div class="svc-img-tag">Musculoskeletal</div>
+      </div>
+      <div class="svc-img-body">
+        <div class="svc-img-title">Shoulder Pain</div>
+        <div class="svc-img-desc">Assessment and treatment of shoulder muscles, joints, tendons, and nerves — reducing pain and restoring full range of motion.</div>
+        <div class="svc-img-footer">
+          <a href="#contact" class="svc-img-link">Book Session <span>→</span></a>
+          <div class="svc-img-arrow">→</div>
+        </div>
+      </div>
     </div>
-    <div class="svc-card reveal reveal-d2">
-      <div class="svc-ic">🏋️</div>
-      <div class="svc-title">Therapeutic Exercises</div>
-      <p class="svc-desc">Therapeutic exercises are specially designed physical activities that help improve strength, flexibility, balance, posture, and overall body movement. These exercises support recovery from pain, injury, surgery, and muscle weakness while promoting long-term physical health and mobility.</p>
-      <!--<a href="#" class="svc-link">View Details →</a>-->
+
+    <!-- 2. Therapeutic Exercises -->
+    <div class="svc-img-card reveal reveal-d2">
+      <div class="svc-img-wrap">
+        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&q=80&fit=crop" alt="Therapeutic Exercises" loading="lazy">
+        <div class="svc-img-overlay"></div>
+        <div class="svc-img-tag">Rehabilitation</div>
+      </div>
+      <div class="svc-img-body">
+        <div class="svc-img-title">Therapeutic Exercises</div>
+        <div class="svc-img-desc">Specially designed physical activities to improve strength, flexibility, balance, and posture — supporting lasting recovery.</div>
+        <div class="svc-img-footer">
+          <a href="#contact" class="svc-img-link">Book Session <span>→</span></a>
+          <div class="svc-img-arrow">→</div>
+        </div>
+      </div>
     </div>
-    <div class="svc-card reveal reveal-d3">
-      <div class="svc-ic">🦴</div>
-      <div class="svc-title">Hip Pain</div>
-      <p class="svc-desc">Hip pain physiotherapy focuses on the assessment, diagnosis, and treatment of conditions affecting the hip joints, muscles, ligaments, and surrounding tissues. It helps reduce pain, improve flexibility and movement, restore strength, and support recovery from injury, arthritis, muscle strain, and posture-related problems.</p>
-      <!--<a href="#" class="svc-link">View Details →</a>-->
+
+    <!-- 3. Hip Pain -->
+    <div class="svc-img-card reveal reveal-d3">
+      <div class="svc-img-wrap">
+        <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=600&q=80&fit=crop" alt="Hip Pain Physiotherapy" loading="lazy">
+        <div class="svc-img-overlay"></div>
+        <div class="svc-img-tag">Musculoskeletal</div>
+      </div>
+      <div class="svc-img-body">
+        <div class="svc-img-title">Hip Pain</div>
+        <div class="svc-img-desc">Targeted treatment of hip joints, muscles, and ligaments — restoring flexibility, strength, and pain-free movement.</div>
+        <div class="svc-img-footer">
+          <a href="#contact" class="svc-img-link">Book Session <span>→</span></a>
+          <div class="svc-img-arrow">→</div>
+        </div>
+      </div>
     </div>
-    <div class="svc-card reveal reveal-d1">
-      <div class="svc-ic">🦵</div>
-      <div class="svc-title">Knee Pain</div>
-      <p class="svc-desc">Knee pain physiotherapy focuses on the assessment, diagnosis, and treatment of conditions affecting the knee joints, muscles, ligaments, and tendons. It helps reduce pain, improve mobility, restore strength, and support recovery from injuries, arthritis, sports strain, and everyday movement problems.</p>
-      <!--<a href="#" class="svc-link">View Details →</a>-->
+
+    <!-- 4. Knee Pain -->
+    <div class="svc-img-card reveal reveal-d1">
+      <div class="svc-img-wrap">
+        <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=600&q=80&fit=crop" alt="Knee Pain Physiotherapy" loading="lazy">
+        <div class="svc-img-overlay"></div>
+        <div class="svc-img-tag">Musculoskeletal</div>
+      </div>
+      <div class="svc-img-body">
+        <div class="svc-img-title">Knee Pain</div>
+        <div class="svc-img-desc">Expert care for knee joints, ligaments, and tendons — from arthritis and sports injuries to post-surgical recovery.</div>
+        <div class="svc-img-footer">
+          <a href="#contact" class="svc-img-link">Book Session <span>→</span></a>
+          <div class="svc-img-arrow">→</div>
+        </div>
+      </div>
     </div>
-    <div class="svc-card reveal reveal-d2">
-      <div class="svc-ic">🧍</div>
-      <div class="svc-title">Back Pain</div>
-      <p class="svc-desc">Back pain physiotherapy focuses on the assessment, diagnosis, and treatment of conditions affecting the spine, muscles, joints, and nerves of the back. It helps reduce pain, improve posture and flexibility, restore movement, and support recovery from muscle strain, poor posture, injury, and long-term back problems.</p>
-      <!--<a href="#" class="svc-link">View Details →</a>-->
+
+    <!-- 5. Back Pain -->
+    <div class="svc-img-card reveal reveal-d2">
+      <div class="svc-img-wrap">
+        <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=600&q=80&fit=crop" alt="Back Pain Physiotherapy" loading="lazy">
+        <div class="svc-img-overlay"></div>
+        <div class="svc-img-tag">Spine & Posture</div>
+      </div>
+      <div class="svc-img-body">
+        <div class="svc-img-title">Back Pain</div>
+        <div class="svc-img-desc">Spine, muscle, and nerve treatment to reduce back pain, correct posture, and restore movement — for acute and chronic cases alike.</div>
+        <div class="svc-img-footer">
+          <a href="#contact" class="svc-img-link">Book Session <span>→</span></a>
+          <div class="svc-img-arrow">→</div>
+        </div>
+      </div>
     </div>
-    <div class="svc-card reveal reveal-d3">
-      <div class="svc-ic">🦶</div>
-      <div class="svc-title">Foot & Ankle Pain</div>
-      <p class="svc-desc">Foot and ankle pain physiotherapy focuses on the assessment, diagnosis, and treatment of conditions affecting the foot, ankle joints, muscles, ligaments, and tendons. It helps reduce pain, improve balance and mobility, restore strength, and support recovery from injuries, sprains, heel pain, and movement-related problems..</p>
-      <!--<a href="#" class="svc-link">View Details →</a>-->
+
+    <!-- 6. Foot & Ankle Pain -->
+    <div class="svc-img-card reveal reveal-d3">
+      <div class="svc-img-wrap">
+        <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=600&q=80&fit=crop" alt="Foot and Ankle Pain" loading="lazy">
+        <div class="svc-img-overlay"></div>
+        <div class="svc-img-tag">Lower Limb</div>
+      </div>
+      <div class="svc-img-body">
+        <div class="svc-img-title">Foot & Ankle Pain</div>
+        <div class="svc-img-desc">Treatment for foot, ankle joints, and tendons — relieving heel pain, sprains, and balance issues so you walk with confidence again.</div>
+        <div class="svc-img-footer">
+          <a href="#contact" class="svc-img-link">Book Session <span>→</span></a>
+          <div class="svc-img-arrow">→</div>
+        </div>
+      </div>
     </div>
-    <div class="svc-card reveal reveal-d1">
-      <div class="svc-ic">🧠</div>
-      <div class="svc-title">Neurological Physiotherapy</div>
-      <p class="svc-desc">Neurological physiotherapy focuses on the assessment, diagnosis, and treatment of conditions affecting the brain, spinal cord, and nerves. It helps improve movement, balance, coordination, strength, and independence in individuals recovering from stroke, paralysis, nerve injuries, Parkinson’s disease, and other neurological conditions.</p>
-      <!--<a href="#" class="svc-link">View Details →</a>-->
+
+    <!-- 7. Neurological Physiotherapy -->
+    <div class="svc-img-card reveal reveal-d1">
+      <div class="svc-img-wrap">
+        <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=600&q=80&fit=crop" alt="Neurological Physiotherapy" loading="lazy">
+        <div class="svc-img-overlay"></div>
+        <div class="svc-img-tag">Neurology</div>
+      </div>
+      <div class="svc-img-body">
+        <div class="svc-img-title">Neurological Physiotherapy</div>
+        <div class="svc-img-desc">Specialist rehabilitation for stroke, paralysis, Parkinson's, and nerve injuries — rebuilding movement, coordination, and independence.</div>
+        <div class="svc-img-footer">
+          <a href="#contact" class="svc-img-link">Book Session <span>→</span></a>
+          <div class="svc-img-arrow">→</div>
+        </div>
+      </div>
     </div>
-    <div class="svc-card reveal reveal-d2" style="background:linear-gradient(135deg,var(--blue) 0%,var(--blue-dark) 100%);border-color:transparent;color:#fff;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center">
-      <div style="font-size:48px;margin-bottom:16px">📋</div>
-      <div class="svc-title" style="color:#fff;font-size:20px">Need a Custom Plan?</div>
-      <p class="svc-desc" style="color:rgba(255,255,255,.7)">Talk to our specialists and get a treatment plan tailored to your specific needs.</p>
-      <a href="#contact" class="btn-nav btn-nav-solid" style="background:#fff;color:var(--blue);margin-top:16px">Contact Us →</a>
+
+    <!-- 8. Custom Plan CTA -->
+    <div class="svc-cta-card reveal reveal-d2">
+      <div class="svc-cta-icon">📋</div>
+      <div class="svc-cta-title">Need a Custom Plan?</div>
+      <div class="svc-cta-desc">Talk to our specialists and get a treatment plan tailored specifically to your condition and recovery goals.</div>
+      <a href="#contact" class="btn-nav btn-nav-solid" style="background:#fff;color:var(--blue);font-size:14px;padding:11px 22px">Contact Us →</a>
     </div>
-    <div class="svc-card reveal reveal-d3" style="background:var(--teal-light);border-color:rgba(6,200,168,.2)">
-      <div class="svc-ic" style="background:rgba(6,200,168,.15)">🏠</div>
-      <div class="svc-title">Home Visit Service</div>
-      <p class="svc-desc">We provide physiotherapy home visit services across Najafgarh, Dwarka, Uttam Nagar and West Delhi.</p>
-      <a href="#" class="svc-link" style="color:#059e84">View Details →</a>
+
+    <!-- 9. Home Visit -->
+    <div class="svc-home-card reveal reveal-d3">
+      <div class="svc-home-icon">🏠</div>
+      <div class="svc-home-title">Home Visit Service</div>
+      <div class="svc-home-desc">We bring expert physiotherapy care to your doorstep across Najafgarh, Dwarka, Uttam Nagar and West Delhi.</div>
+      <a href="#contact" class="svc-home-link">Book Home Visit →</a>
     </div>
+
   </div>
 </section>
 
@@ -569,7 +775,7 @@ He completed his Bachelor of Physiotherapy (B.P.T) from Bundelkhand University a
     <div class="cta-text reveal">
       <div class="sec-tag" style="background:rgba(6,200,168,.15);color:var(--teal)">✦ Watch & Learn</div>
       <h2 class="sec-title" style="color:#fff;margin-top:12px">See How We <span style="color:var(--teal)">Transform Lives</span> Every Day</h2>
-      <p class="sec-sub" style="color:rgba(255,255,255,.6)">Watch our video testimonials and educational content to understand how our approach leads to lasting recovery.</p>
+      <p style="font-size:16px;color:rgba(255,255,255,.6);font-weight:300;line-height:1.7;max-width:480px">Watch our video testimonials and educational content to understand how our approach leads to lasting recovery.</p>
       <ul class="cta-points">
         <li><div class="cp-dot">✓</div> Personalized treatment plans for each patient</li>
         <li><div class="cp-dot">✓</div> World-class equipment and modern techniques</li>
@@ -597,87 +803,22 @@ He completed his Bachelor of Physiotherapy (B.P.T) from Bundelkhand University a
   </div>
 </section>
 
-<!-- ═══ GALLERY ═══ -->
-<section class="section section-light">
-  <div class="sec-header-center reveal">
-    <div class="sec-tag sec-tag-blue">✦ Our Clinic</div>
-    <h2 class="sec-title">World-Class <span style="color:var(--blue)">Facilities</span></h2>
-    <p class="sec-sub">State-of-the-art clinics designed for comfort, recovery, and cutting-edge treatment</p>
-  </div>
-  <div class="gallery-grid reveal">
-    <div class="g-item" style="background:linear-gradient(135deg,#1354F9,#0d2d6b)"><span style="font-size:72px">🏥</span></div>
-    <div class="g-item" style="background:linear-gradient(135deg,#06C8A8,#0B5F8A)"><span style="font-size:60px">🩺</span></div>
-    <div class="g-item" style="background:linear-gradient(135deg,#152250,#1354F9)"><span style="font-size:60px">💪</span></div>
-    <div class="g-item" style="background:linear-gradient(135deg,#dde9ff,#b6ceff)"><span style="font-size:72px">👨‍⚕️</span></div>
-  </div>
-</section>
-
 <!-- ═══ TEAM ═══ -->
-
 <section class="section" id="team" style="display:none;">
   <div class="sec-header-center reveal">
-  
     <div class="sec-tag sec-tag-blue">✦ Meet Our Doctors</div>
-        <h2 class="sec-title">Leading Medical Professionals <span style="color:var(--blue)">At Your Service</span></h2>
+    <h2 class="sec-title">Leading Medical Professionals <span style="color:var(--blue)">At Your Service</span></h2>
     <p class="sec-sub">Our team of expert physiotherapists dedicated to your speedy, lasting recovery</p>
   </div>
-  
   <div class="team-slider-wrap reveal">
     <div class="team-track" id="teamTrack">
-      <div class="doc-card">
-        <div class="doc-img">👨‍⚕️</div>
-        <div class="doc-body">
-          <div class="doc-name">Dr. Narendra Yadav</div>
-          <div class="doc-role">Senior Physiotherapist</div>
-          <div class="doc-phone">📞 74286-00000</div>
-        </div>
-      </div>
-      <div class="doc-card">
-        <div class="doc-img">👨‍⚕️</div>
-        <div class="doc-body">
-          <div class="doc-name">Dr. Nilesh Yadav</div>
-          <div class="doc-role">Neurological Specialist</div>
-          <div class="doc-phone">📞 74286-00001</div>
-        </div>
-      </div>
-      <div class="doc-card">
-        <div class="doc-img" style="background:linear-gradient(135deg,#fde8ff,#d9b4ff)">👩‍⚕️</div>
-        <div class="doc-body">
-          <div class="doc-name">Dr. Sanjay Ratna</div>
-          <div class="doc-role">Sports Physiotherapist</div>
-          <div class="doc-phone">📞 74286-00002</div>
-        </div>
-      </div>
-      <div class="doc-card">
-        <div class="doc-img" style="background:linear-gradient(135deg,#e8ffe8,#a4f0a4)">👩‍⚕️</div>
-        <div class="doc-body">
-          <div class="doc-name">Dr. Jyoti Singh</div>
-          <div class="doc-role">Occupational Therapist</div>
-          <div class="doc-phone">📞 74286-00003</div>
-        </div>
-      </div>
-      <div class="doc-card">
-        <div class="doc-img" style="background:linear-gradient(135deg,#fff3e8,#ffd4a4)">👨‍⚕️</div>
-        <div class="doc-body">
-          <div class="doc-name">Dr. Amit Sharma</div>
-          <div class="doc-role">Cardiopulmonary Expert</div>
-          <div class="doc-phone">📞 74286-00004</div>
-        </div>
-      </div>
-      <div class="doc-card">
-        <div class="doc-img" style="background:linear-gradient(135deg,#e8f4ff,#a4d4ff)">👩‍⚕️</div>
-        <div class="doc-body">
-          <div class="doc-name">Dr. Priya Mehta</div>
-          <div class="doc-role">Speech Therapist</div>
-          <div class="doc-phone">📞 74286-00005</div>
-        </div>
-      </div>
+      <div class="doc-card"><div class="doc-img">👨‍⚕️</div><div class="doc-body"><div class="doc-name">Dr. Narendra Yadav</div><div class="doc-role">Senior Physiotherapist</div><div class="doc-phone">📞 74286-00000</div></div></div>
+      <div class="doc-card"><div class="doc-img">👨‍⚕️</div><div class="doc-body"><div class="doc-name">Dr. Nilesh Yadav</div><div class="doc-role">Neurological Specialist</div><div class="doc-phone">📞 74286-00001</div></div></div>
+      <div class="doc-card"><div class="doc-img" style="background:linear-gradient(135deg,#fde8ff,#d9b4ff)">👩‍⚕️</div><div class="doc-body"><div class="doc-name">Dr. Sanjay Ratna</div><div class="doc-role">Sports Physiotherapist</div><div class="doc-phone">📞 74286-00002</div></div></div>
     </div>
   </div>
-
   <div class="team-arrows">
-    
-    <button class="team-arrow" id="tprev" aria-label="Prev"><</button>
+    <button class="team-arrow" id="tprev" aria-label="Prev">&lt;</button>
     <button class="team-arrow" id="tnext" aria-label="Next">›</button>
   </div>
 </section>
@@ -724,7 +865,7 @@ He completed his Bachelor of Physiotherapy (B.P.T) from Bundelkhand University a
 <footer>
   <div class="footer-grid">
     <div class="foot-brand">
-      <a href="#" class="logo" style="color:#fff;margin-bottom:14px">
+      <a href="#" class="logo" style="color:#fff;margin-bottom:14px;display:inline-flex">
         <div class="logo-mark">✚</div>
         PHYSIO<em>CARE</em>
       </a>
@@ -769,14 +910,13 @@ He completed his Bachelor of Physiotherapy (B.P.T) from Bundelkhand University a
 <script>
 // ── NAVBAR SCROLL ──
 window.addEventListener('scroll',()=>{
-  const nb=document.getElementById('navbar');
-  nb.classList.toggle('scrolled',scrollY>60);
+  document.getElementById('navbar').classList.toggle('scrolled',scrollY>60);
 });
 
 // ── MOBILE MENU ──
 function toggleMenu(){
-  document.getElementById('navMobile').style.display=
-    document.getElementById('navMobile').style.display==='flex'?'none':'flex';
+  const m=document.getElementById('navMobile');
+  m.style.display=m.style.display==='flex'?'none':'flex';
 }
 
 // ── HERO SLIDER ──
@@ -785,11 +925,9 @@ const hTrack=document.getElementById('heroTrack');
 const hSlides=document.querySelectorAll('.hero-slide');
 const hDots=document.querySelectorAll('.hdot');
 function heroGo(n){
-  hSlides[hi].classList.remove('active');
-  hDots[hi].classList.remove('active');
+  hSlides[hi].classList.remove('active');hDots[hi].classList.remove('active');
   hi=(n+ht)%ht;
-  hSlides[hi].classList.add('active');
-  hDots[hi].classList.add('active');
+  hSlides[hi].classList.add('active');hDots[hi].classList.add('active');
   hTrack.style.transform=`translateX(${-hi*33.333}%)`;
 }
 document.getElementById('hnext').onclick=()=>heroGo(hi+1);
@@ -812,9 +950,9 @@ document.getElementById('tnext').onclick=()=>teamGo(1);
 document.getElementById('tprev').onclick=()=>teamGo(-1);
 
 // ── SCROLL REVEAL ──
-const ro=new IntersectionObserver((entries)=>{
+const ro=new IntersectionObserver(entries=>{
   entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');ro.unobserve(e.target)}});
-},{threshold:.12});
+},{threshold:.1});
 document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
 
 // ── SMOOTH NAV LINKS ──
